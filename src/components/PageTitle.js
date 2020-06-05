@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import Container from "react-bootstrap/Container";
 import Jumbotron from "react-bootstrap/Jumbotron";
 
-function PageTitle({title, description}) {
+function PageTitle({ title, description }) {
   return (
     <Jumbotron>
       <Container>
@@ -13,5 +14,10 @@ function PageTitle({title, description}) {
     </Jumbotron>
   );
 }
+
+PageTitle.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};
 
 export default PageTitle;

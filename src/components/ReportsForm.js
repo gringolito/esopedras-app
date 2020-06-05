@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
@@ -12,13 +13,10 @@ import useFormObject from "../hooks/useFormObject";
 function ReportsForm({ onSubmit }) {
   const [formRef, validated, handleFormSubmit] = useFormObject();
 
-  const getReport = () => {
-    console.log("ReportsForm.getReport")
-    return {
-      month: document.getElementById("ReportsForm.Month").value,
-      creditCard: document.getElementById("ReportsForm.CreditCard").value,
-    };
-  }
+  const getReport = () => ({
+    month: document.getElementById("ReportsForm.Month").value,
+    creditCard: document.getElementById("ReportsForm.CreditCard").value,
+  });
 
   const submitCallback = () => onSubmit(getReport());
 
@@ -39,7 +37,7 @@ function ReportsForm({ onSubmit }) {
               />
               <Form.Control.Feedback type="invalid">
                 Escolha um mês/ano.
-            </Form.Control.Feedback>
+              </Form.Control.Feedback>
             </InputGroup>
           </Form.Group>
         </Col>
@@ -48,9 +46,15 @@ function ReportsForm({ onSubmit }) {
         block
         type="button"
         onClick={() => handleFormSubmit(submitCallback)}
-      >Gerar Relatório</Button>
+      >
+        Gerar Relatório
+      </Button>
     </Form>
   );
 }
+
+ReportsForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
 
 export default ReportsForm;

@@ -4,21 +4,20 @@ import PageTitle from "../components/PageTitle";
 import ReportsForm from "../components/ReportsForm";
 
 function Reports() {
-  const [report, setReport] = useState(null);
+  const [reports, setReport] = useState(null);
 
   const handleSubmitReport = (report) => {
     const request = {
-      method: 'GET',
-      cache: 'default',
-      mode: 'cors',
+      method: "GET",
+      cache: "default",
+      mode: "cors",
     };
-    fetch('http://localhost:10101/api/v1/report-payments/' + report.month, request)
+    fetch(`http://localhost:10101/api/v1/report-payments/${report.month}`, request)
       .then(response => response.json())
       .then(body => {
-        console.log(body);
         setReport(body);
       });
-  }
+  };
 
   return (
     <div>
@@ -29,6 +28,7 @@ function Reports() {
       <Container>
         <ReportsForm onSubmit={handleSubmitReport} />
       </Container>
+      {!!reports && ""}
     </div>
   );
 }

@@ -9,10 +9,10 @@ function Sales() {
 
   const handleSubmitSale = (sale) => {
     const request = {
-      method: 'POST',
-      cache: 'default',
-      mode: 'cors',
-      headers: { 'Content-Type': 'application/json' },
+      method: "POST",
+      cache: "default",
+      mode: "cors",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         sale_amount: sale.amount,
         num_payments: sale.installments,
@@ -20,21 +20,19 @@ function Sales() {
         credit_card_network_id: sale.creditCard,
       }),
     };
-    fetch('http://localhost:10101/api/v1/orders/', request)
+    fetch("http://localhost:10101/api/v1/orders/", request)
       .then(response => response.json())
       .then(body => {
-        console.log(body);
-        const sale = {
+        const saleResponse = {
+          id: body.id,
           amount: body.sale_amount,
           installments: body.num_payments,
           date: body.date,
-          creditCard: body.credit_card_network.network
-        }
-        setSales(prevSales => [...prevSales, sale]);
-        console.log(sale);
-        console.log(sales);
+          creditCard: body.credit_card_network.network,
+        };
+        setSales(prevSales => [...prevSales, saleResponse]);
       });
-  }
+  };
 
   return (
     <div>

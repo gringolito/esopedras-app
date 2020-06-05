@@ -1,19 +1,19 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import Table from "react-bootstrap/Table";
 import Row from "react-bootstrap/Row";
 
 function LastSalesTable({ sales }) {
-  const tableRows = sales.map((sale, index) => {
-    return (
-      <tr key={index}>
-        <td>R$</td>
-        <td>{sale.amount.toFixed(2)}</td>
-        <td>{sale.installments}</td>
-        <td>{new Date(sale.date).toLocaleDateString("pt-BR", { timeZone: "UTC" })}</td>
-        <td>{sale.creditCard}</td>
-      </tr>
-    );
-  });
+  const tableRows = sales.map((sale) => (
+    <tr key={sale.id}>
+      <td>R$</td>
+      <td>{sale.amount.toFixed(2)}</td>
+      <td>{sale.installments}</td>
+      <td>{new Date(sale.date).toLocaleDateString("pt-BR", { timeZone: "UTC" })}</td>
+      <td>{sale.creditCard}</td>
+    </tr>
+  ));
 
   return (
     <Row className="text-center mt-5">
@@ -21,7 +21,7 @@ function LastSalesTable({ sales }) {
       <Table striped hover>
         <thead>
           <tr>
-            <th colspan="2">Valor</th>
+            <th colSpan="2">Valor</th>
             <th># Parcelas</th>
             <th>Data da Venda</th>
             <th>Cartão de Crédito</th>
@@ -34,5 +34,9 @@ function LastSalesTable({ sales }) {
     </Row>
   );
 }
+
+LastSalesTable.propTypes = {
+  sales: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default LastSalesTable;

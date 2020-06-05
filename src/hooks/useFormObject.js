@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef } from "react";
 
 const useFormObject = () => {
   const [validated, setValidated] = useState(false);
@@ -12,20 +12,23 @@ const useFormObject = () => {
 
     setValidated(true);
     return retval;
-  }
+  };
 
   const resetForm = () => {
     formRef.current.reset();
     setValidated(false);
-  }
+  };
 
   const handleFormSubmit = onSubmit => {
     if (validateForm()) {
-      onSubmit && onSubmit();
+      if (onSubmit) {
+        onSubmit();
+      }
       resetForm();
     }
-  }
+  };
 
   return [formRef, validated, handleFormSubmit];
 };
+
 export default useFormObject;

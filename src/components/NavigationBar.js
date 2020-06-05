@@ -1,16 +1,15 @@
-import React from 'react';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import React from "react";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
-import "./NavigationBar.css"
+import "./NavigationBar.css";
 
 function NavigationBar() {
   return (
     <Navbar className="navigation-clean">
       <Navbar.Brand href="sales" className="navbar-brand">Esopedras</Navbar.Brand>
-      <Navbar.Toggle aria-controls="navbar-collapse" className="navbar-toogler">
-      </Navbar.Toggle>
+      <Navbar.Toggle aria-controls="navbar-collapse" className="navbar-toogler" />
       <Navbar.Collapse id="navbar-collapse" className="navigation-clean form-inline">
         <Nav className="ml-auto">
           <Nav.Link href="sales">Cadastro de Vendas</Nav.Link>

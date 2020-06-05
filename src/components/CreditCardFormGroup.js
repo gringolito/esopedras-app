@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import Form from "react-bootstrap/Form";
 
 function CreditCardFormGroup({ controlId }) {
@@ -17,5 +19,9 @@ function CreditCardFormGroup({ controlId }) {
     </Form.Group>
   );
 }
+
+CreditCardFormGroup.propTypes = {
+  controlId: PropTypes.string.isRequired,
+};
 
 export default CreditCardFormGroup;
