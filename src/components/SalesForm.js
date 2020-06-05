@@ -75,7 +75,6 @@ function SalesForm({ onSubmit }) {
                 aria-label="Data"
                 type="date"
                 max={new Date().toISOString().split("T")[0]}
-                defaultValue={new Date().toISOString().split("T")[0]}
                 name="date"
               />
               <Form.Control.Feedback type="invalid">

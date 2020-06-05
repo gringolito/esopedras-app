@@ -23,7 +23,7 @@ function LastSalesTable({ sales }) {
           <tr>
             <th colspan="2">Valor</th>
             <th># Parcelas</th>
-            <th>Data</th>
+            <th>Data da Venda</th>
             <th>Cartão de Crédito</th>
           </tr>
         </thead>
